@@ -41,7 +41,7 @@ public class MainMenu extends PApplet {
 
 
 	public void settings () {
-		size (1920, 1080);
+		size (1980, 1080); //PROFE AGRANDA  LA PANTALLA
                      
 		
 	} // SETTINGS	
@@ -64,11 +64,9 @@ public class MainMenu extends PApplet {
 	
 public void draw () {
 	
-	background (0);
-	
+	background(255);
+	mousePressed ();
 	image (FONDO, 0,0);
-	
-	
 } //DRAW
 
 public void mousePressed () {
@@ -78,6 +76,7 @@ public void mousePressed () {
 	
 		if (mouseX > 91 && mouseX < 91 + 241
 				&& mouseY > 92 && mouseY < 92 + 70) { //BOTON NOMBRE
+			
 			
 			image (PERRO4, 425,93);
 			image (PERRO1, 699,93);

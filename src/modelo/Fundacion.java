@@ -136,6 +136,8 @@ public class Fundacion implements Comparator {
 			PrintWriter writer = new PrintWriter ("Id Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
 			writer.println(idFinal);
 			
+			
+			
 			return idFinal;
 			
 	}//	ORGANIZAR ID NATURAL
@@ -194,6 +196,8 @@ public class Fundacion implements Comparator {
 			
 			PrintWriter writer = new PrintWriter ("Nombre Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
 			writer.println(nombreFinal);
+			
+			
 			
 	} //ORGANIZAR NOMBRE NATURAL
 	
