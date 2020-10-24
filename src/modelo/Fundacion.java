@@ -6,7 +6,7 @@ import java.util.Comparator;
 
 public class Fundacion implements Comparator {
 
-	
+
 
 	private Perro [] perros;
 	private int [] idUno;
@@ -110,34 +110,30 @@ public class Fundacion implements Comparator {
 
 	}//ORGANIZADOR
 
-	public void OrganizarIdNatural () {
+	public void OrganizarIdNaturalPorIncercion () {
 
-		
+		int current;
+		int i;
+
+		for (int j = 1; j < idFinal.length; j++) {
+			current = idFinal [j]; 
+			i = j-1;
+			while ( i > -1 && idFinal [i] > current) {
+
+				idFinal [1+i] = idFinal [i];
+				i--;
+				
+			}	//WHILE
+			
+			idFinal [1+i] = current;
+			
+		} //FOR
 
 	} //ORGANIZARIDNATURAL
 	@Override
-	
+
 	public int compare(Object perro1, Object perro2) {
-		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+		return (((Perro) perro1).getId()) - ((((Perro) perro2).getId()));
 	}
-
-	public int compareNombre(Object perro1, Object perro2) {
-		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
-	}
-	
-	public int compareRaza(Object perro1, Object perro2) {
-		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
-	}
-	
-	public int compareEdad(Object perro1, Object perro2) {
-		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
-	}
-	
-	public int compareFecha(Object perro1, Object perro2) {
-		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
-	}
-	
-
-
 
 } //CLASS
