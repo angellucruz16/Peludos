@@ -114,7 +114,7 @@ public class Fundacion implements Comparator {
 
 	}//ORGANIZADOR
 
-	public void OrganizarIdNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
+	public int[] OrganizarIdNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
 
 		int current;
 		int i;
@@ -135,6 +135,8 @@ public class Fundacion implements Comparator {
 		
 			PrintWriter writer = new PrintWriter ("Id Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
 			writer.println(idFinal);
+			
+			return idFinal;
 			
 	}//	ORGANIZAR ID NATURAL
 		
