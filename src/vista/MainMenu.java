@@ -21,7 +21,7 @@ public class MainMenu extends PApplet {
 	PImage P9;
 	PImage P10;
 
-
+	private Fundacion fundacion;
 
 
 
@@ -71,19 +71,22 @@ public void mousePressed () {
 
 	
 		if (mouseX > 91 && mouseX < 91 + 241
-				&& mouseY > 92 && mouseY < 92 + 70) {
-			exit ();
+				&& mouseY > 92 && mouseY < 92 + 70) { //BOTON NOMBRE
+			
+			fundacion.OrganizarNombreNaturalPorIncercion();
 		
 		}
 	
 		if (mouseX > 91 && mouseX < 91 + 241
 				&& mouseY > 195 && mouseY < 195 + 60) {
-			exit ();
+			
+			
 		}
 		
 		if (mouseX > 91 && mouseX < 91 + 241
-				&& mouseY > 296 && mouseY < 296 + 60) {
-			exit ();
+				&& mouseY > 296 && mouseY < 296 + 60) { //BOTON ID
+			
+			fundacion.OrganizarIdNaturalPorIncercion();
 		}
 		
 		if (mouseX > 91 && mouseX < 91 + 241
