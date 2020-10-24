@@ -2,10 +2,13 @@ package modelo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.util.Comparator;
 
-public class Fundacion {
+public class Fundacion implements Comparator {
 
-	private Perro [] perro;
+	
+
+	private Perro [] perros;
 	private int [] idUno;
 	private int [] idDos;
 	private String [] raza;
@@ -15,22 +18,32 @@ public class Fundacion {
 	private int [] idFinal;
 	private String [] razaFinal;
 	private String [] fechaFinal;
-	
-	
-	
-	
-	
+
+
+
 	public Fundacion () {
 
+		perros = new Perro [10];
 		idUno = new int [10];
 		idDos = new int [10];
 		raza = new String [10];
 		nombreFinal = new String [10];
-		edadFinal = new String [10];
+		edadFinal = new int [10];
 		fecha = new String [10];
-		idFinal = new String [10];
+		idFinal = new int [10];
 		razaFinal = new String [10];
 		fechaFinal = new String [10];
+
+		read (); 
+		organizador ();
+
+
+
+		for (int i = 0; i < perros.length; i++) {
+
+			perros [i] = new Perro  (nombreFinal [i] ,idFinal [i], edadFinal [i], fechaFinal[i], razaFinal [i]);
+		}
+
 	}	//FUNDACION
 
 	public void read () {
@@ -67,8 +80,8 @@ public class Fundacion {
 
 				this.idDos [i] = idDos;
 
-				line=bufferedreader.readLine();
-
+				lineUno=bufferedreaderUno.readLine();
+				lineDos=bufferedreaderDos.readLine();
 				i++;
 
 			} //WHILE
@@ -87,14 +100,44 @@ public class Fundacion {
 
 				if (idUno [i] == idDos [j] ) {
 					idFinal [i] = idUno [i] ;
-					
+
 					razaFinal [i] = raza [j];
 					fechaFinal [i] = fecha [i];
-					
+
 				} //IF
 			} //FOR
 		}//FOR
 
 	}//ORGANIZADOR
+
+	public void OrganizarIdNatural () {
+
+		
+
+	} //ORGANIZARIDNATURAL
+	@Override
+	
+	public int compare(Object perro1, Object perro2) {
+		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+	}
+
+	public int compareNombre(Object perro1, Object perro2) {
+		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+	}
+	
+	public int compareRaza(Object perro1, Object perro2) {
+		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+	}
+	
+	public int compareEdad(Object perro1, Object perro2) {
+		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+	}
+	
+	public int compareFecha(Object perro1, Object perro2) {
+		return ((Perro) perro1).getId() - (((Perro) perro2).getId());
+	}
+	
+
+
 
 } //CLASS
