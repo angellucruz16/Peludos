@@ -1,7 +1,10 @@
 package modelo;
 
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
 import java.util.Comparator;
 
@@ -111,7 +114,7 @@ public class Fundacion implements Comparator {
 
 	}//ORGANIZADOR
 
-	public void OrganizarIdNaturalPorIncercion () {
+	public void OrganizarIdNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
 
 		int current;
 		int i;
@@ -129,6 +132,10 @@ public class Fundacion implements Comparator {
 			idFinal [1+i] = current;
 			
 		} //FOR
+		
+			PrintWriter writer = new PrintWriter ("Id Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
+			writer.println(idFinal);
+			
 	}//	ORGANIZAR ID NATURAL
 		
 		public void OrganizarEdadNaturalPorIncercion () {
@@ -164,7 +171,7 @@ public class Fundacion implements Comparator {
 		return perroN1.compareTo (perroN2);
 	} //compare
 	
-	public void OrganizarNombreNaturalPorIncercion () {
+	public void OrganizarNombreNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
 		
 			String current;
 			int i;
@@ -182,9 +189,13 @@ public class Fundacion implements Comparator {
 				nombreFinal [1+i] = current;
 				
 			} //FOR
+			
+			PrintWriter writer = new PrintWriter ("Nombre Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
+			writer.println(nombreFinal);
+			
 	} //ORGANIZAR NOMBRE NATURAL
 	
-	public void OrganizarRazaNaturalPorIncercion () {
+	public void OrganizarRazaNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
 		
 		String current;
 		int i;
@@ -202,9 +213,13 @@ public class Fundacion implements Comparator {
 			razaFinal [1+i] = current;
 			
 		} //FOR
+		
+		PrintWriter writer = new PrintWriter ("Raza Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
+		writer.println(razaFinal);
+		
 	}////ORGANIZAR RAZA NATURAL
 	
-	public void OrganizarFechaNaturalPorIncercion () {
+	public void OrganizarFechaNaturalPorIncercion () throws FileNotFoundException, UnsupportedEncodingException {
 		
 		Date current;
 		int i;
@@ -222,6 +237,10 @@ public class Fundacion implements Comparator {
 			fechaFinal [1+i] = current;
 			
 		} //FOR
+		
+		PrintWriter writer = new PrintWriter ("Fecha Organizado", "UTF-8" ); //UTF SIRVE COMO CODIFICADOR
+		writer.println(fechaFinal);
+		
 	} //ORGANIZAR FECHA NATURAL
 
 } //CLASS

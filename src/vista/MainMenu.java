@@ -3,6 +3,10 @@ package vista;
 
 
 import processing.core.PApplet;
+
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
+
 import modelo.Fundacion;
 import modelo.Perro;
 import processing.core.PImage;
@@ -73,30 +77,55 @@ public void mousePressed () {
 		if (mouseX > 91 && mouseX < 91 + 241
 				&& mouseY > 92 && mouseY < 92 + 70) { //BOTON NOMBRE
 			
-			fundacion.OrganizarNombreNaturalPorIncercion();
+			try {
+				fundacion.OrganizarNombreNaturalPorIncercion();
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		
 		}
 	
 		if (mouseX > 91 && mouseX < 91 + 241
-				&& mouseY > 195 && mouseY < 195 + 60) {
+				&& mouseY > 195 && mouseY < 195 + 60) {  //BOTON RAZA
 			
+			try {
+				fundacion.OrganizarRazaNaturalPorIncercion();
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			
 		}
 		
 		if (mouseX > 91 && mouseX < 91 + 241
 				&& mouseY > 296 && mouseY < 296 + 60) { //BOTON ID
 			
-			fundacion.OrganizarIdNaturalPorIncercion();
+			try {
+				fundacion.OrganizarIdNaturalPorIncercion();
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		
 		if (mouseX > 91 && mouseX < 91 + 241
-				&& mouseY > 398 && mouseY < 398 + 60) {
-			exit ();
+				&& mouseY > 398 && mouseY < 398 + 60) { // BOTON EDAD
+		
+			fundacion.OrganizarEdadNaturalPorIncercion();
+			
 		}
 		
 		if (mouseX > 91 && mouseX < 91 + 241
-				&& mouseY > 499 && mouseY < 499 + 60) {
-			exit ();
+				&& mouseY > 499 && mouseY < 499 + 60) { // BOTON NACIMIENTO
+			
+			try {
+				fundacion.OrganizarFechaNaturalPorIncercion();
+			} catch (FileNotFoundException | UnsupportedEncodingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 		}
 		
 }//MOUSEPRESSED
