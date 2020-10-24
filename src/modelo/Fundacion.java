@@ -4,20 +4,33 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 
 public class Fundacion {
-	
+
 	private Perro [] perro;
 	private int [] idUno;
 	private int [] idDos;
 	private String [] raza;
-	private String [] nombre;
-	private int [] edad;
+	private String [] nombreFinal;
+	private int [] edadFinal;
 	private String [] fecha;
+	private int [] idFinal;
+	private String [] razaFinal;
+	private String [] fechaFinal;
+	
+	
+	
+	
 	
 	public Fundacion () {
-		
+
 		idUno = new int [10];
 		idDos = new int [10];
-
+		raza = new String [10];
+		nombreFinal = new String [10];
+		edadFinal = new String [10];
+		fecha = new String [10];
+		idFinal = new String [10];
+		razaFinal = new String [10];
+		fechaFinal = new String [10];
 	}	//FUNDACION
 
 	public void read () {
@@ -34,7 +47,7 @@ public class Fundacion {
 			String lineDos = bufferedreaderDos.readLine();
 
 			int i=0;
-			
+
 			while (lineUno != null && lineDos != null) {
 
 				String [] atributosUno = lineUno.split(",");
@@ -43,21 +56,21 @@ public class Fundacion {
 				int idUno = Integer.parseInt(atributosUno [0]);
 				String nombre = atributosUno [1];
 				int edad = Integer.parseInt  (atributosUno [2]);
-				
+
 				this.idUno [i] = idUno;
-				
+
 				int idDos = Integer.parseInt(atributosDos [0]);
-				
-				
+
+
 				String raza = atributosDos [2];
 				String fecha = atributosDos [3];
-				
+
 				this.idDos [i] = idDos;
-				
+
 				line=bufferedreader.readLine();
-				
+
 				i++;
-				
+
 			} //WHILE
 		} 
 		catch (Exception e) {
@@ -66,5 +79,22 @@ public class Fundacion {
 		} //CATCH
 
 	} //READ
+
+	public void organizador () {
+
+		for (int i=0; i< idUno.length; i++) {
+			for ( int j=0; j< idUno.length; j++) {
+
+				if (idUno [i] == idDos [j] ) {
+					idFinal [i] = idUno [i] ;
+					
+					razaFinal [i] = raza [j];
+					fechaFinal [i] = fecha [i];
+					
+				} //IF
+			} //FOR
+		}//FOR
+
+	}//ORGANIZADOR
 
 } //CLASS
