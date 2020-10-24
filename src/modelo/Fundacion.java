@@ -2,6 +2,7 @@ package modelo;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
+import java.sql.Date;
 import java.util.Comparator;
 
 public class Fundacion implements Comparator {
@@ -14,10 +15,10 @@ public class Fundacion implements Comparator {
 	private String [] raza;
 	private String [] nombreFinal;
 	private int [] edadFinal;
-	private String [] fecha;
+	private Date[] fecha;
 	private int [] idFinal;
 	private String [] razaFinal;
-	private String [] fechaFinal;
+	private Date[] fechaFinal;
 
 
 
@@ -29,10 +30,10 @@ public class Fundacion implements Comparator {
 		raza = new String [10];
 		nombreFinal = new String [10];
 		edadFinal = new int [10];
-		fecha = new String [10];
+		fecha  = new Date [10];
 		idFinal = new int [10];
 		razaFinal = new String [10];
-		fechaFinal = new String [10];
+		fechaFinal = new Date [10];
 
 		read (); 
 		organizador ();
@@ -102,7 +103,7 @@ public class Fundacion implements Comparator {
 					idFinal [i] = idUno [i] ;
 
 					razaFinal [i] = raza [j];
-					fechaFinal [i] = fecha [i];
+					fechaFinal [i] = fecha [j];
 
 				} //IF
 			} //FOR
@@ -128,12 +129,99 @@ public class Fundacion implements Comparator {
 			idFinal [1+i] = current;
 			
 		} //FOR
+	}//	ORGANIZAR ID NATURAL
+		
+		public void OrganizarEdadNaturalPorIncercion () {
 
-	} //ORGANIZARIDNATURAL
+		int current;
+		int i;
+
+		for (int j = 1; j < edadFinal.length; j++) {
+			current = edadFinal [j]; 
+			i = j-1;
+			while ( i > -1 && edadFinal [i] > current) {
+
+				edadFinal [1+i] = edadFinal [i];
+				i--;
+				
+			}	//WHILE
+			
+			edadFinal [1+i] = current;
+			
+		} //FOR
+		
+	} //ORGANIZAR EDAD NATURAL
+		
+		
+		
+		
 	@Override
 
 	public int compare(Object perro1, Object perro2) {
-		return (((Perro) perro1).getId()) - ((((Perro) perro2).getId()));
-	}
+		
+		Perro perroN1 = (Perro) perro1 ;  Perro perroN2 = (Perro) perro2 ; 
+		
+		return perroN1.compareTo (perroN2);
+	} //compare
+	
+	public void OrganizarNombreNaturalPorIncercion () {
+		
+			String current;
+			int i;
+
+			for (int j = 1; j < nombreFinal.length; j++) {
+				current = nombreFinal [j]; 
+				i = j-1;
+				while ( i > -1 && nombreFinal [i].compareTo(current) > 0) {
+
+					nombreFinal [1+i] = nombreFinal [i];
+					i--;
+					
+				}	//WHILE
+				
+				nombreFinal [1+i] = current;
+				
+			} //FOR
+	} //ORGANIZAR NOMBRE NATURAL
+	
+	public void OrganizarRazaNaturalPorIncercion () {
+		
+		String current;
+		int i;
+
+		for (int j = 1; j < razaFinal.length; j++) {
+			current = razaFinal [j]; 
+			i = j-1;
+			while ( i > -1 && razaFinal [i].compareTo(current) > 0) {
+
+				razaFinal [1+i] = razaFinal [i];
+				i--;
+				
+			}	//WHILE
+			
+			razaFinal [1+i] = current;
+			
+		} //FOR
+	}////ORGANIZAR RAZA NATURAL
+	
+	public void OrganizarFechaNaturalPorIncercion () {
+		
+		Date current;
+		int i;
+
+		for (int j = 1; j < fechaFinal.length; j++) {
+			current = fechaFinal [j]; 
+			i = j-1;
+			while ( i > -1 && fechaFinal [i].compareTo(current) > 0) {
+
+				fechaFinal [1+i] = fechaFinal [i];
+				i--;
+				
+			}	//WHILE
+			
+			fechaFinal [1+i] = current;
+			
+		} //FOR
+	} //ORGANIZAR FECHA NATURAL
 
 } //CLASS
